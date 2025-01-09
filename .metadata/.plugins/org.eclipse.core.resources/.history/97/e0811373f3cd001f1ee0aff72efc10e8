@@ -1,0 +1,29 @@
+package com.jai.Quiz.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionDao;
+import com.jai.Quiz.Entity.Question;
+
+@Service
+public class QuestionService {
+	
+	@Autowired
+	QuestionDao questiondao;
+
+	public List<Question>getAllQuestion() {
+		
+		
+		return questiondao.findAll();
+		
+		
+		
+	}
+	
+	
+
+}

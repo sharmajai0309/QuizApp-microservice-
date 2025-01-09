@@ -1,0 +1,5 @@
+package com.jai.Quiz.Dao;
+
+public class QuizRepo {
+
+}

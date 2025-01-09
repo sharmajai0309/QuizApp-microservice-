@@ -1,0 +1,5 @@
+package com.jai.Quiz.Entity;
+
+public class Quiz {
+
+}

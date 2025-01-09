@@ -1,0 +1,30 @@
+package com.jai.Quiz.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionDao;
+import com.jai.Quiz.Entity.Question;
+
+@Service
+public class QuestionService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(QuestionService.class);
+
+    @Autowired
+    private QuestionDao questiondao;
+
+    public List<Question> getAllQuestion() {
+        List<Question> questions = questiondao.findAll();
+        logger.info("Fetched questions: {}", questions);
+        return questions;
+		
+	
+	}
+	
+	
+
+}

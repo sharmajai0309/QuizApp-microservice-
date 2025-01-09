@@ -1,0 +1,30 @@
+package com.jai.Quiz.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionRepository;
+import com.jai.Quiz.Dao.QuizRepo;
+
+@Service
+public class QuizService {
+	
+	
+	@Autowired
+	QuizRepo quizRepo;
+	
+	@Autowired
+	QuestionRepository questionRepository;
+	
+  
+
+	public ResponseEntity<String> createQuiz(String level, int numQ) {
+		
+		return null;
+	}
+	
+	
+	
+
+}

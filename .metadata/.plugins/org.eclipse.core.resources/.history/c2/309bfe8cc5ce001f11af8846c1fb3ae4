@@ -1,0 +1,9 @@
+package com.jai.Quiz.Dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.jai.Quiz.Entity.Question;
+
+public interface QuizRepo extends JpaRepository<Question, Integer> {
+
+}

@@ -1,0 +1,15 @@
+package com.jai.Quiz.Service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class QuestionService {
+
+	public String getAllQuestion() {
+		return "";
+		
+	}
+	
+	
+
+}

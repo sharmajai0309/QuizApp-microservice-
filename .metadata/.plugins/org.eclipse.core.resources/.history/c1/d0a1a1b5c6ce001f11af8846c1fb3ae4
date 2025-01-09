@@ -1,0 +1,14 @@
+package com.jai.Quiz.Service;
+
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionRepository;
+import com.jai.Quiz.Dao.QuizRepo;
+
+@Service
+public class QuizService {
+	
+	QuizRepo quizRepo;
+	
+
+}

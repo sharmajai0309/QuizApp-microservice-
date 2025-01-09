@@ -1,0 +1,33 @@
+package com.jai.Quiz.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionRepository;
+import com.jai.Quiz.Dao.QuizRepo;
+import com.jai.Quiz.Entity.Question;
+import com.jai.Quiz.Entity.Quiz;
+
+@Service
+public class QuizService {
+	
+	
+	@Autowired
+	QuizRepo quizRepo;
+	
+	@Autowired
+	QuestionRepository questionRepository;
+	
+  
+
+	 public List<Question> getRandomQuestions(String level, int numQ) {
+	        return questionRepository.findRandomQuestionByLevel(level, numQ);
+	    }
+	
+	
+	  
+
+}

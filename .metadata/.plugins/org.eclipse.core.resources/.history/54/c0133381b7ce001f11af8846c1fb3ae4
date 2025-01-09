@@ -1,0 +1,5 @@
+package com.jai.Quiz.GlobalExceptionHandler;
+
+public class GlobalHandler {
+
+}

@@ -1,0 +1,22 @@
+package com.jai.Quiz.Controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+
+@RestController
+@RequestMapping("question")
+public class QuestionController {
+	
+	
+	
+	@GetMapping("/allquestion")
+	public String getAllquestion() {
+		return new String("this is question");
+	}
+	
+	
+
+}

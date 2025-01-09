@@ -1,0 +1,16 @@
+package com.jai.Quiz.Entity;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class Quiz {
+	
+	private Integer id;
+	private String level;
+	private List<Question> question;
+
+}
