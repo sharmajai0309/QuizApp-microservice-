@@ -1,0 +1,36 @@
+package com.jai.Quiz.Controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jai.Quiz.Entity.QuizResult;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+
+
+@RestController
+@RequestMapping("/quiz")
+public class QuizResponseController {
+	
+	@PostMapping("/submit")
+	public ResponseEntity<Integer> result(@RequestBody QuizResult qr ) {
+		
+		qr.
+		
+		
+		return null;
+		
+		
+		
+	}
+	
+	
+
+	
+	
+	
+}

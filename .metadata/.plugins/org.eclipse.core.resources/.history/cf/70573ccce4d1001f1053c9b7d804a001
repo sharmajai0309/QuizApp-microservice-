@@ -1,0 +1,10 @@
+package com.jai.Quiz.Entity;
+
+public class QuizResult {
+	
+	public class Result{
+	    public String id;
+	    public String option;
+	}
+
+}

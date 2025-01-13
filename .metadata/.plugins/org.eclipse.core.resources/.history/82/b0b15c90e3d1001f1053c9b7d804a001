@@ -1,0 +1,84 @@
+package com.jai.Quiz.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionRepository;
+import com.jai.Quiz.Dao.QuizRepo;
+import com.jai.Quiz.Entity.Question;
+import com.jai.Quiz.Entity.QuestionWrapper;
+import com.jai.Quiz.Entity.Quiz;
+
+@Service
+public class QuizService {
+	
+	
+	@Autowired
+	QuizRepo quizRepo;
+	
+	@Autowired
+	QuestionRepository questionRepository;
+	
+	@Autowired
+	ModelMapper modelMapper;
+	
+	
+  
+
+	public List<Question> findRandomQuestionsByLevelWithLimit(String level, int numQ) {
+        List<Question> questions = questionRepository.findRandomQuestionsByLevel(level);
+        if (questions.size() > numQ) {
+            return questions.subList(0, numQ);
+        } else {
+            return questions;
+        }
+    }
+
+
+
+	
+
+
+	
+
+	public ResponseEntity<List<QuestionWrapper>> getQuizQuestion(Integer id) {
+	    // Retrieve the quiz from the database
+	    Optional<Quiz> quizOptional = quizRepo.findById(id);
+
+	    // Check if the quiz exists
+	    if (quizOptional.isEmpty()) {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+
+	    Quiz quiz = quizOptional.get();
+
+	    // Use a helper method to map the questions to QuestionWrapper
+	    List<QuestionWrapper> questionWrappers = mapToQuestionWrapperList(quiz.getQuestion());
+
+	    return new ResponseEntity<>(questionWrappers, HttpStatus.OK);
+	}
+
+	// Helper method for mapping questions to QuestionWrapper using ModelMapper
+	private List<QuestionWrapper> mapToQuestionWrapperList(List<Question> questions) {
+	    return questions.stream()
+	        .map(this::convertToQuestionWrapper)
+	        .toList();
+	}
+
+	// Convert individual Question to QuestionWrapper
+	private QuestionWrapper convertToQuestionWrapper(Question question) {
+	    // Use ModelMapper to map fields
+	    return modelMapper.map(question, QuestionWrapper.class);
+	}
+
+	
+	  
+
+}

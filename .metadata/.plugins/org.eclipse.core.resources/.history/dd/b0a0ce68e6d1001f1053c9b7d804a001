@@ -1,0 +1,17 @@
+package com.jai.Quiz.Entity;
+
+
+
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@RequiredArgsConstructor
+public class QuizResult {
+	
+	public class Result{
+	    public String id;
+	    public String option;
+	}
+
+}

@@ -1,6 +1,7 @@
 package com.jai.Quiz.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jai.Quiz.Dao.QuizRepo;
 import com.jai.Quiz.Entity.Question;
+import com.jai.Quiz.Entity.QuestionWrapper;
 import com.jai.Quiz.Entity.Quiz;
 import com.jai.Quiz.Service.QuizService;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +33,7 @@ public class QuizController {
 	
 	@Autowired
 	QuizRepo quizRepo;
+	
 	
 	
 	
@@ -56,6 +60,21 @@ public class QuizController {
 
         return new ResponseEntity<>("Quiz created successfully with " + questions.size() + " questions.", HttpStatus.CREATED);
     }
+    
+    
+    
+    /*
+	 * Endpoint Details 
+	 * URL: /quiz/getquiz/{id}
+	 * HTTP Method: Get @PathVariable Integer id
+	 * Returns : ResponseEntity<List<QuestionWrapper>>
+	 */
+    @GetMapping("/getquiz/{id}")
+   public ResponseEntity<List<QuestionWrapper>> getQuiz (@PathVariable Integer id){
+    	
+    	
+		return quizService.getQuizQuestion(id);
+   }
     
     
     

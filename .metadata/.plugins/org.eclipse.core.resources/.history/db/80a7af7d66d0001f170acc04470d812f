@@ -1,0 +1,5 @@
+package com.jai.Quiz.MapperConfig;
+
+public class ModelMapperConfig {
+
+}

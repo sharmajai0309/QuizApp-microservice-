@@ -1,0 +1,52 @@
+package com.jai.Quiz.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.jai.Quiz.Dao.QuestionRepository;
+import com.jai.Quiz.Dao.QuizRepo;
+import com.jai.Quiz.Entity.Question;
+import com.jai.Quiz.Entity.Quiz;
+
+@Service
+public class QuizService {
+	
+	
+	@Autowired
+	QuizRepo quizRepo;
+	
+	@Autowired
+	QuestionRepository questionRepository;
+	
+	
+	
+  
+
+	public List<Question> findRandomQuestionsByLevelWithLimit(String level, int numQ) {
+        List<Question> questions = questionRepository.findRandomQuestionsByLevel(level);
+        if (questions.size() > numQ) {
+            return questions.subList(0, numQ);
+        } else {
+            return questions;
+        }
+    }
+
+
+
+	
+
+
+	public void getQuizQuestion(Integer id) {
+		
+		Optional<Quiz> quiz = quizRepo.findById(id);
+		
+		
+	}
+	
+	  
+
+}
